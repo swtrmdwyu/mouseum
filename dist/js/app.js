@@ -1,2 +1,3 @@
-import { getRandomArts } from "./services/arts.service.js";
-getRandomArts(1);
+import { ArtsController } from "./controllers/ArtsControler.js";
+const arts = new ArtsController;
+arts.addArt();

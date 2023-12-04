@@ -1,8 +1,12 @@
 .arts {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    gap: .8rem;
+    padding: 1rem;
+    grid-template-columns: repeat(2, 1fr);
 
-    img {
-        max-width: 100%;
+    .arts__item {
+        background-size: cover;
+        height: 30vh;
+        border-radius: 10px;
     }
 }

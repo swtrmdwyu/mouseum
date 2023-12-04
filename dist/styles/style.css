@@ -80,9 +80,13 @@ header p {
 }
 
 .arts {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  gap: 0.8rem;
+  padding: 1rem;
+  grid-template-columns: repeat(2, 1fr);
 }
-.arts img {
-  max-width: 100%;
+.arts .arts__item {
+  background-size: cover;
+  height: 30vh;
+  border-radius: 10px;
 }/*# sourceMappingURL=style.css.map */

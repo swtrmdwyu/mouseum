@@ -1,6 +1,5 @@
-import { getRandomArts } from "./services/arts.service.js";
+import { ArtsController } from "./controllers/ArtsControler.js";
 
-getRandomArts(1);
+const arts = new ArtsController;
 
-// addEventListener('scroll', () => {
-// })
+arts.addArt()
