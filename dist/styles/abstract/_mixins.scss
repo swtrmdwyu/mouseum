@@ -1,0 +1,5 @@
+@mixin text-format($color, $family, $size: 1rem) {
+    color: $color;
+    font-family: $family;
+    font-size: $size;
+}

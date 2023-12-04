@@ -1,0 +1,43 @@
+@use '../abstract/mixins';
+@use '../abstract/variables';
+
+header {
+    text-align: center;
+    nav {
+        background-color: variables.$primary-color;
+        padding: 1.2rem;
+        text-align: center;
+        h1 {
+            @include mixins.text-format(
+                variables.$secondary-color,
+                variables.$title-font,
+                1.4rem
+            );
+        }
+    }
+    
+    .banner {
+        img {
+            max-width: 100%;
+        }
+    }
+    
+    h2 {
+        @include mixins.text-format(
+            variables.$primary-color,
+            variables.$title-font,
+            1.4rem
+        );
+        margin-top: 2rem;
+    }
+
+    p {
+        @include mixins.text-format(
+            variables.$primary-color,
+            variables.$text-font,
+            .98rem
+        );
+        margin-top: .5rem;
+        font-weight: 500;
+    }
+}

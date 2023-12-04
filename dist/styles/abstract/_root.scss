@@ -1,0 +1,7 @@
+@use './variables';
+
+body {
+    color: variables.$primary-color;
+    font-family: variables.$text-font;
+    font-size: 16px;
+}
