@@ -2,11 +2,15 @@
 @use '../abstract/variables';
 
 header {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
     text-align: center;
     nav {
         background-color: variables.$primary-color;
-        padding: 1.2rem;
+        padding: 1.2rem 0;
         text-align: center;
+        width: 100%;
         h1 {
             @include mixins.text-format(
                 variables.$secondary-color,

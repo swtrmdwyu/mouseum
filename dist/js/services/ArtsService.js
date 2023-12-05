@@ -4,7 +4,7 @@ export class ArtsService {
         this.APIKey = '8bbd5817-292e-477f-8f11-4a4df88b74ee';
     }
     async getRandomArts(page) {
-        return fetch(`https://api.harvardartmuseums.org/object?sort=random&hasimage=1&size=5&page=${page}&apikey=${this.APIKey}`)
+        return fetch(`https://api.harvardartmuseums.org/object?sort=random&hasimage=0&size=5&page=${page}&apikey=${this.APIKey}`)
             .then(res => res.json())
             .then(async (records) => {
             const arts = records.records;

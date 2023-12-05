@@ -6,7 +6,7 @@ export class ArtsService {
     }
 
     public async getRandomArts(page: number): Promise<[]>{
-         return fetch(`https://api.harvardartmuseums.org/object?sort=random&hasimage=1&size=5&page=${page}&apikey=${this.APIKey}`)
+         return fetch(`https://api.harvardartmuseums.org/object?sort=random&hasimage=0&size=5&page=${page}&apikey=${this.APIKey}`)
                     .then(res => res.json())
                     .then(async records => {
                         const arts = records.records;
@@ -21,7 +21,6 @@ export class ArtsService {
                                 }
                             }
                         }
-                        
                         return arts;
                     });
     }

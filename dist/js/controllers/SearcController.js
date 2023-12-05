@@ -1,0 +1,1 @@
+const searchIcon = document.querySelector('');
