@@ -6,27 +6,7 @@ export class ArtsService {
     }
 
     public async getRandomArts(page: number): Promise<[]>{
-         return fetch(`https://api.harvardartmuseums.org/object?sort=random&hasimage=0&size=5&page=${page}&apikey=${this.APIKey}`)
-                    .then(res => res.json())
-                    .then(async records => {
-                        const arts = records.records;
-                        for(let i = 0; i < arts.length; i++) {
-                            if (!arts[i].primaryimageurl) {
-                                while(true) {
-                                    const newArt = await this.getRandomArtURL();
-                                    if (newArt[0].primaryimageurl != null) {
-                                        arts[i] = newArt[0];
-                                        break;
-                                    }
-                                }
-                            }
-                        }
-                        return arts;
-                    });
-    }
-
-    public async getRandomArtURL() {
-        return fetch(`https://api.harvardartmuseums.org/object?sort=random&hasimage=1&size=1&apikey=${this.APIKey}`)
+         return fetch(`https://api.harvardartmuseums.org/object?sort=random&hasimage=1&q=imagepermissionlevel:0&size=5&page=${page}&apikey=${this.APIKey}`)
                     .then(res => res.json())
                     .then(records => records.records);
     }

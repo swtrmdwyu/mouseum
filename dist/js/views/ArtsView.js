@@ -1,6 +1,7 @@
 export class ArtsView {
     constructor() { }
     update(arts, artsElement) {
+        console.log(arts);
         arts.forEach((art) => {
             const artElement = document.createElement('div');
             artElement.style.background = `url(${art.primaryimageurl}) center/cover no-repeat`;
