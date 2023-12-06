@@ -5,12 +5,14 @@ export class ArtsView {
     update(arts, artsElement) {
         arts.forEach((art) => {
             const artElement = document.createElement('div');
-            artElement.style.background = `url(${art.primaryimageurl}) center/cover no-repeat`;
             artElement.classList.add('arts__item');
-            artElement.dataset.id = art.id.toString();
-            artElement.addEventListener('click', () => {
+            const artImage = document.createElement('img');
+            artImage.src = art.primaryimageurl;
+            artImage.dataset.id = art.id.toString();
+            artImage.addEventListener('click', () => {
                 this.showInfos(art.id.toString());
             });
+            artElement.appendChild(artImage);
             artsElement.appendChild(artElement);
         });
     }
