@@ -1,4 +1,4 @@
-interface Arts {
+interface Art {
     id: number;
     title: string;
     description: string;

@@ -6,11 +6,16 @@ header {
     display: flex;
     flex-direction: column;
     text-align: center;
+
     nav {
+        align-items: center;
         background-color: variables.$primary-color;
+        display: flex;
+        justify-content: center;
         padding: 1.2rem 0;
         text-align: center;
         width: 100%;
+
         h1 {
             @include mixins.text-format(
                 variables.$secondary-color,
@@ -18,11 +23,14 @@ header {
                 1.4rem
             );
         }
-    }
-    
-    .banner {
-        img {
-            max-width: 100%;
+
+        a {
+            color: variables.$secondary-color;
+            font-size: 1.3rem;
+            margin: 1.2rem;
+            right: 0;
+            position: absolute;
+            top: 0;
         }
     }
     

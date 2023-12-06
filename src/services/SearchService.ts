@@ -7,7 +7,7 @@ export class SearchService {
 
     constructor () {}
 
-    public async searchArts(searchValue: string): Promise<Arts[]> {
+    public async searchArts(searchValue: string): Promise<Art[]> {
         return fetch(`${this.baseURL}?q=(${searchValue} AND ${this.permission})&size=20&page=${this.page}&hasimage=1&fields=${this.fields}&apikey=${this.APIKey}`)
                     .then(res => res.json())
                     .then(q => q.records);

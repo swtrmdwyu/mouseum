@@ -3,7 +3,7 @@ import { ArtsView } from "../views/ArtsView.js";
 
 export class ArtsController {
     private artsElement: HTMLDivElement;
-    private arts: Arts[];
+    private arts: Art[];
     private page = 0;
 
     private artsService = new ArtsService();

@@ -4,13 +4,14 @@ export class SearchController {
     searchIcon;
     SearchInput;
     artsElement;
+    filterElement;
     searchService = new SearchService();
     artsView = new ArtsView();
-    cont = 1;
     constructor() {
         this.searchIcon = document.querySelector('.search__icon');
         this.SearchInput = document.querySelector('.search__input');
         this.artsElement = document.querySelector('.arts');
+        this.filterElement = document.querySelector('.filter__icon');
         this.searchIcon.addEventListener('click', () => {
             if (this.queryVerify()) {
                 this.SearchArts();
@@ -23,6 +24,8 @@ export class SearchController {
                 }
             }
         });
+        this.filterElement.addEventListener('click', () => {
+        });
     }
     queryVerify() {
         if (!this.SearchInput.value) {
@@ -34,6 +37,7 @@ export class SearchController {
         }
     }
     async SearchArts() {
+        this.filterElement.style.display = 'block';
         const arts = await this.searchService.searchArts(this.SearchInput.value);
         this.artsElement.innerHTML = "";
         this.artsView.update(arts, this.artsElement);

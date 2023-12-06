@@ -1,12 +1,20 @@
 export class ArtsService {
-    private APIKey: string
+    private APIKey ='8bbd5817-292e-477f-8f11-4a4df88b74ee';
+    private baseURL = 'https://api.harvardartmuseums.org/object'
+    public page = 1;
+    private fields = 'id,title,description,primaryimageurl,people,dated'
+    private permission = 'imagepermissionlevel:0'
 
-    constructor() {
-        this.APIKey = '8bbd5817-292e-477f-8f11-4a4df88b74ee';
+    constructor() { }
+
+    public async getRandomArts(page: number): Promise<Art[]>{
+         return fetch(`${this.baseURL}?sort=random&hasimage=1&q=${this.permission}&fields=${this.fields}&size=5&page=${page}&apikey=${this.APIKey}`)
+                    .then(res => res.json())
+                    .then(records => records.records);
     }
 
-    public async getRandomArts(page: number): Promise<Arts[]>{
-         return fetch(`https://api.harvardartmuseums.org/object?sort=random&hasimage=1&q=imagepermissionlevel:0&size=5&page=${page}&apikey=${this.APIKey}`)
+    public async getArt(id: string): Promise<Art[]> {
+        return fetch(`${this.baseURL}?id=${id}&fields=${this.fields}&apikey=${this.APIKey}`)
                     .then(res => res.json())
                     .then(records => records.records);
     }

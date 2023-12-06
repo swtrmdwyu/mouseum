@@ -56,7 +56,10 @@ header {
   text-align: center;
 }
 header nav {
+  align-items: center;
   background-color: #1E1E1E;
+  display: flex;
+  justify-content: center;
   padding: 1.2rem 0;
   text-align: center;
   width: 100%;
@@ -66,8 +69,13 @@ header nav h1 {
   font-family: "DM Serif Text", serif;
   font-size: 1.4rem;
 }
-header .banner img {
-  max-width: 100%;
+header nav a {
+  color: #EEF7FF;
+  font-size: 1.3rem;
+  margin: 1.2rem;
+  right: 0;
+  position: absolute;
+  top: 0;
 }
 header h2 {
   color: #1E1E1E;
@@ -106,6 +114,16 @@ header p {
   height: 80%;
   outline: none;
   width: 100%;
+}
+
+.search__filter {
+  display: flex;
+  justify-content: flex-end;
+  width: calc(100% - 3rem);
+}
+.search__filter img {
+  display: none;
+  width: 1.6rem;
 }
 
 .arts {
