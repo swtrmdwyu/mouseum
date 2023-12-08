@@ -1,14 +1,18 @@
 import { ArtsService } from "../services/ArtsService.js";
+import { ModalController } from "../controllers/ModalController.js";
 
 export class ArtsView {
     private artsService = new ArtsService();
+    private modalController = new ModalController();
 
     constructor() {}
     
     public update(arts: Art[], artsElement: HTMLDivElement): void {
+        
         arts.forEach((art: Art) => {
+            
+
             const artElement = document.createElement('div');
-            // artElement.style.background = `url(${art.primaryimageurl}) center/cover no-repeat`;
             artElement.classList.add('arts__item');
 
             const artImage = document.createElement('img');
@@ -17,14 +21,20 @@ export class ArtsView {
             artImage.addEventListener('click', () => {
                 this.showInfos(art.id.toString());
             })
+            
+            const loadImage = new Promise((resolve) => {
+                artElement.style.background = 'black';
+                artImage.onload = resolve;
+            });
 
             artElement.appendChild(artImage);
             artsElement.appendChild(artElement);
         })
     }
 
-    private async showInfos(id: string): Promise<void> {
-        //mostra modal
+    private async showInfos(id: string): Promise<void> { 
         const art = await this.artsService.getArt(id);
+        this.modalController.render(art[0]);
     }
 }
+

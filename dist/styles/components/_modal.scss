@@ -1,0 +1,138 @@
+@use '../abstract/variables';
+@use '../abstract/mixins';
+
+.modal {
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.258);
+    display: none;
+    height: 100%;
+    justify-content: center;
+    top: 0;
+    position: fixed;
+    width: 100%;
+
+    .modal-container {
+        background-color: white;
+        border-radius: 10px;
+        display: grid;
+        height: auto;
+        justify-items: center;
+        max-height: 90%;
+        padding: .8rem .8rem 1.5rem .8rem;
+        width: 80%;
+
+        .art__image {
+            border-radius: 10px;
+            height: auto;
+            max-height: 360px;
+            width: 100%;    
+            margin-bottom: .8rem;
+
+            img{
+                border-radius: 10px;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+        
+        .close__button {
+            width: .8rem;
+            justify-self: end;
+            margin: 0 .5rem .7rem 0;
+        }
+
+        .art__save {
+            @include mixins.text-format(
+                variables.$primary-color,
+                variables.$text-font
+            );
+
+            display: flex;
+            font-weight: 700;
+            justify-content: space-between;
+            margin-bottom: 1.2rem;
+            width: 98%;
+
+            .save__buttons {
+                a {
+                    @include mixins.text-format(
+                        variables.$primary-color,
+                        variables.$text-font,
+                    );
+
+                    margin-left: .5rem;
+                }  
+            }
+        }
+
+        .art__infos {
+            @include mixins.text-format(
+                        variables.$primary-color,
+                        variables.$text-font,
+            );
+
+            display: flex;
+            flex-direction: column;
+            font-weight: 500;
+            gap: .5rem;
+            justify-self: start;
+            margin-left: 1%;
+
+            h2 {
+                @include mixins.text-format(
+                    variables.$primary-color,
+                    variables.$title-font,
+                    2rem
+                );
+            }
+
+            .art__description {
+                font-style: italic;
+                margin-top: 1rem;
+            }
+        }
+
+        .art__colors {
+            display: flex;
+            margin-top: 2rem;
+            min-height: 6rem;
+            width: 100%;
+
+            .art__color {
+                justify-content: center;
+                padding: 1rem .5rem 1rem .5rem;
+                display: flex;
+                flex: 1;
+                span {
+                    @include mixins.text-format(
+                        variables.$primary-color,
+                        variables.$text-font,
+                        .76rem
+                    );
+                    font-weight: 800;
+                    text-transform: uppercase;
+                    transform: rotate(180deg);
+                    writing-mode: vertical-rl;
+                }
+
+                &:first-child {
+                    border-radius: 10px 0 0 10px;
+                }
+
+                &:last-child {
+                    border-radius: 0 10px 10px 0;
+                }
+            }
+        }
+    }  
+}
+
+@media  screen and (max-width: 356px) {
+    body {
+        background-color: aquamarine;
+    }
+    .art__image {
+        max-height: 100px;
+    }
+}

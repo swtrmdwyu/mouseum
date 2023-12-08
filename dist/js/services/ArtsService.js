@@ -2,7 +2,7 @@ export class ArtsService {
     APIKey = '8bbd5817-292e-477f-8f11-4a4df88b74ee';
     baseURL = 'https://api.harvardartmuseums.org/object';
     page = 1;
-    fields = 'id,title,description,primaryimageurl,people,dated';
+    fields = 'id,title,description,primaryimageurl,people,dated,technique,colors';
     permission = 'imagepermissionlevel:0';
     constructor() { }
     async getRandomArts(page) {

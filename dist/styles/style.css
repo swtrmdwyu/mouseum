@@ -142,4 +142,116 @@ header p {
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.modal {
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.258);
+  display: none;
+  height: 100%;
+  justify-content: center;
+  top: 0;
+  position: fixed;
+  width: 100%;
+}
+.modal .modal-container {
+  background-color: white;
+  border-radius: 10px;
+  display: grid;
+  height: auto;
+  justify-items: center;
+  max-height: 90%;
+  padding: 0.8rem 0.8rem 1.5rem 0.8rem;
+  width: 80%;
+}
+.modal .modal-container .art__image {
+  border-radius: 10px;
+  height: auto;
+  max-height: 360px;
+  width: 100%;
+  margin-bottom: 0.8rem;
+}
+.modal .modal-container .art__image img {
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.modal .modal-container .close__button {
+  width: 0.8rem;
+  justify-self: end;
+  margin: 0 0.5rem 0.7rem 0;
+}
+.modal .modal-container .art__save {
+  color: #1E1E1E;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+  display: flex;
+  font-weight: 700;
+  justify-content: space-between;
+  margin-bottom: 1.2rem;
+  width: 98%;
+}
+.modal .modal-container .art__save .save__buttons a {
+  color: #1E1E1E;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+  margin-left: 0.5rem;
+}
+.modal .modal-container .art__infos {
+  color: #1E1E1E;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+  gap: 0.5rem;
+  justify-self: start;
+  margin-left: 1%;
+}
+.modal .modal-container .art__infos h2 {
+  color: #1E1E1E;
+  font-family: "DM Serif Text", serif;
+  font-size: 2rem;
+}
+.modal .modal-container .art__infos .art__description {
+  font-style: italic;
+  margin-top: 1rem;
+}
+.modal .modal-container .art__colors {
+  display: flex;
+  margin-top: 2rem;
+  min-height: 6rem;
+  width: 100%;
+}
+.modal .modal-container .art__colors .art__color {
+  justify-content: center;
+  padding: 1rem 0.5rem 1rem 0.5rem;
+  display: flex;
+  flex: 1;
+}
+.modal .modal-container .art__colors .art__color span {
+  color: #1E1E1E;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.76rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  transform: rotate(180deg);
+  writing-mode: vertical-rl;
+}
+.modal .modal-container .art__colors .art__color:first-child {
+  border-radius: 10px 0 0 10px;
+}
+.modal .modal-container .art__colors .art__color:last-child {
+  border-radius: 0 10px 10px 0;
+}
+
+@media screen and (max-width: 356px) {
+  body {
+    background-color: aquamarine;
+  }
+  .art__image {
+    max-height: 100px;
+  }
 }/*# sourceMappingURL=style.css.map */
