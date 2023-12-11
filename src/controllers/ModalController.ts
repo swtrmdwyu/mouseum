@@ -3,8 +3,7 @@ export class ModalController {
     private closeButton: HTMLImageElement;
     private imageElement: HTMLImageElement;
     private idElement: HTMLParagraphElement;
-    private downloadButton: HTMLAnchorElement;
-    private saveButton: HTMLAnchorElement;
+    private buttonsElement: HTMLDivElement;
     private yearElement: HTMLParagraphElement;
     private artistElement: HTMLParagraphElement;
     private techniqueElement: HTMLParagraphElement;
@@ -16,8 +15,7 @@ export class ModalController {
         this.closeButton = document.querySelector('.close__button') as HTMLImageElement;
         this.imageElement = document.querySelector('.art__img') as HTMLImageElement;
         this.idElement = document.querySelector('.art__id') as HTMLParagraphElement;
-        this.downloadButton = document.querySelector('.download__button') as HTMLAnchorElement;
-        this.saveButton = document.querySelector('.save__button') as HTMLAnchorElement;
+        this.buttonsElement = document.querySelector('.art__buttons') as HTMLDivElement;
         this.yearElement = document.querySelector('.art__year') as HTMLParagraphElement;
         this.artistElement = document.querySelector('.art__artist') as HTMLParagraphElement;
         this.techniqueElement = document.querySelector('.art__technique') as HTMLParagraphElement;
@@ -59,26 +57,29 @@ export class ModalController {
 
             this.colorsElement.appendChild(colorElement);
         });
-        
-        this.downloadButton.addEventListener('click', () => {
-            this.downloadImage(art.primaryimageurl)
-        })
 
-        this.saveButton.addEventListener('click', () => {
+        const saveButton = document.createElement('a');
+        saveButton.innerHTML = '<i class="uil uil-bookmark"></i>';
+        saveButton.classList.add('save__button');
+
+        saveButton.addEventListener('click', () => {
             this.saveArt(JSON.stringify(art));
-        })
-    }
+        });
 
-    private downloadImage(url: string) {
-        //baixar imagem
+        this.buttonsElement.innerHTML = "";
+        this.buttonsElement.appendChild(saveButton)
     }
 
     private saveArt(art: string) {
         const arts = JSON.parse(localStorage.getItem('saved')) || [];
-        
-        arts.push(JSON.parse(art));
-        
-        localStorage.setItem('saved', JSON.stringify(arts));
-        console.log(arts)
+        const artJSON = JSON.parse(art);
+        const artsToSave = arts.filter((savedArt: Art) => artJSON.id !== savedArt.id);
+
+        if(artsToSave.length === arts.length) {
+            artsToSave.push(artJSON);
+            console.log('entrou')
+        }
+
+        localStorage.setItem('saved', JSON.stringify(artsToSave));
     }
 }

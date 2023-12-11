@@ -4,7 +4,7 @@ import { ArtsView } from "../views/ArtsView.js";
 export class ArtsController {
     private artsElement: HTMLDivElement;
     private arts: Art[];
-    private page = 0;
+    public page = 0;
 
     private artsService = new ArtsService();
     private artsView = new ArtsView();
@@ -14,6 +14,7 @@ export class ArtsController {
     }
 
     public async addArt(): Promise<void> {
+        this.page++;
         this.arts = await this.artsService.getRandomArts(this.page);
         this.artsView.update(this.arts, this.artsElement);
     }

@@ -1,7 +1,6 @@
 export class ArtsService {
     private APIKey ='8bbd5817-292e-477f-8f11-4a4df88b74ee';
     private baseURL = 'https://api.harvardartmuseums.org/object'
-    public page = 1;
     private fields = 'id,title,description,primaryimageurl,people,dated,technique,colors'
     private permission = 'imagepermissionlevel:0'
 

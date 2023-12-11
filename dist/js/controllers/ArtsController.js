@@ -10,6 +10,7 @@ export class ArtsController {
         this.artsElement = document.querySelector('.arts');
     }
     async addArt() {
+        this.page++;
         this.arts = await this.artsService.getRandomArts(this.page);
         this.artsView.update(this.arts, this.artsElement);
     }

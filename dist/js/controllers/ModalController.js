@@ -3,8 +3,7 @@ export class ModalController {
     closeButton;
     imageElement;
     idElement;
-    downloadButton;
-    saveButton;
+    buttonsElement;
     yearElement;
     artistElement;
     techniqueElement;
@@ -15,8 +14,7 @@ export class ModalController {
         this.closeButton = document.querySelector('.close__button');
         this.imageElement = document.querySelector('.art__img');
         this.idElement = document.querySelector('.art__id');
-        this.downloadButton = document.querySelector('.download__button');
-        this.saveButton = document.querySelector('.save__button');
+        this.buttonsElement = document.querySelector('.art__buttons');
         this.yearElement = document.querySelector('.art__year');
         this.artistElement = document.querySelector('.art__artist');
         this.techniqueElement = document.querySelector('.art__technique');
@@ -50,19 +48,23 @@ export class ModalController {
             });
             this.colorsElement.appendChild(colorElement);
         });
-        this.downloadButton.addEventListener('click', () => {
-            this.downloadImage(art.primaryimageurl);
-        });
-        this.saveButton.addEventListener('click', () => {
+        const saveButton = document.createElement('a');
+        saveButton.innerHTML = '<i class="uil uil-bookmark"></i>';
+        saveButton.classList.add('save__button');
+        saveButton.addEventListener('click', () => {
             this.saveArt(JSON.stringify(art));
         });
-    }
-    downloadImage(url) {
+        this.buttonsElement.innerHTML = "";
+        this.buttonsElement.appendChild(saveButton);
     }
     saveArt(art) {
         const arts = JSON.parse(localStorage.getItem('saved')) || [];
-        arts.push(JSON.parse(art));
-        localStorage.setItem('saved', JSON.stringify(arts));
-        console.log(arts);
+        const artJSON = JSON.parse(art);
+        const artsToSave = arts.filter((savedArt) => artJSON.id !== savedArt.id);
+        if (artsToSave.length === arts.length) {
+            artsToSave.push(artJSON);
+            console.log('entrou');
+        }
+        localStorage.setItem('saved', JSON.stringify(artsToSave));
     }
 }
