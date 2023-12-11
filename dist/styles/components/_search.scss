@@ -30,11 +30,19 @@
 
 .search__filter {
     display: flex;
+    flex-direction: column;
     justify-content: flex-end;
     width: calc(100% - 3rem);
 
     img {
         display: none;
+        margin-left: auto;
         width: 1.6rem;
+    }
+
+    .filter__options{
+        width: 50%;
+        margin-left: auto;
+        text-align: end;
     }
 }

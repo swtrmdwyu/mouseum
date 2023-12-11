@@ -97,7 +97,7 @@
             display: flex;
             margin-top: 2rem;
             min-height: 6rem;
-            width: 100%;
+            width: 100%;     
 
             .art__color {
                 justify-content: center;
@@ -110,6 +110,7 @@
                         variables.$hex-font,
                         1rem
                     );
+                    cursor: pointer;
                     font-weight: 800;
                     opacity: .73;
                     text-align: center;
@@ -117,7 +118,7 @@
                     transform: rotate(180deg);
                     writing-mode: vertical-rl;
                 }
-
+                
                 &:first-child {
                     border-radius: 10px 0 0 10px;
                 }
@@ -131,9 +132,6 @@
 }
 
 @media  screen and (max-width: 356px) {
-    body {
-        //
-    }
     .art__image {
         max-height: 100px;
     }
