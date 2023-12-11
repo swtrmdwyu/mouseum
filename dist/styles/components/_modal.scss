@@ -107,10 +107,12 @@
                 span {
                     @include mixins.text-format(
                         variables.$primary-color,
-                        variables.$text-font,
-                        .76rem
+                        variables.$hex-font,
+                        1rem
                     );
                     font-weight: 800;
+                    opacity: .73;
+                    text-align: center;
                     text-transform: uppercase;
                     transform: rotate(180deg);
                     writing-mode: vertical-rl;
@@ -130,7 +132,7 @@
 
 @media  screen and (max-width: 356px) {
     body {
-        background-color: aquamarine;
+        //
     }
     .art__image {
         max-height: 100px;

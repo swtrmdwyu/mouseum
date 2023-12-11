@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,700;1,400;1,500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@400;700&display=swap");
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -233,9 +234,11 @@ header p {
 }
 .modal .modal-container .art__colors .art__color span {
   color: #1E1E1E;
-  font-family: "Montserrat", sans-serif;
-  font-size: 0.76rem;
+  font-family: "Ubuntu Mono", monospace;
+  font-size: 1rem;
   font-weight: 800;
+  opacity: 0.73;
+  text-align: center;
   text-transform: uppercase;
   transform: rotate(180deg);
   writing-mode: vertical-rl;
@@ -248,9 +251,6 @@ header p {
 }
 
 @media screen and (max-width: 356px) {
-  body {
-    background-color: aquamarine;
-  }
   .art__image {
     max-height: 100px;
   }

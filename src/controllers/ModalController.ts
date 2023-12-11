@@ -1,3 +1,5 @@
+import { VerifyColor } from "../utils/VerifyColor.js";
+
 export class ModalController {
     private modalELement: HTMLDivElement;
     private closeButton: HTMLImageElement;
@@ -45,6 +47,7 @@ export class ModalController {
 
             const span = document.createElement('span');
             span.textContent = color.color;
+            span.style.color = VerifyColor.color(color.color);
 
             colorElement.appendChild(span);
             colorElement.addEventListener('click', () => {

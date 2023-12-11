@@ -1,3 +1,4 @@
+import { VerifyColor } from "../utils/VerifyColor.js";
 export class ModalController {
     modalELement;
     closeButton;
@@ -39,6 +40,7 @@ export class ModalController {
             colorElement.style.backgroundColor = color.color;
             const span = document.createElement('span');
             span.textContent = color.color;
+            span.style.color = VerifyColor.color(color.color);
             colorElement.appendChild(span);
             colorElement.addEventListener('click', () => {
                 const colorHEX = color.color;
