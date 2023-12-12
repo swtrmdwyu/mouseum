@@ -5,6 +5,7 @@ export class ModalController {
     imageElement;
     idElement;
     buttonsElement;
+    titleElement;
     yearElement;
     artistElement;
     techniqueElement;
@@ -16,6 +17,7 @@ export class ModalController {
         this.imageElement = document.querySelector('.art__img');
         this.idElement = document.querySelector('.art__id');
         this.buttonsElement = document.querySelector('.art__buttons');
+        this.titleElement = document.querySelector('.art__title');
         this.yearElement = document.querySelector('.art__year');
         this.artistElement = document.querySelector('.art__artist');
         this.techniqueElement = document.querySelector('.art__technique');
@@ -29,6 +31,7 @@ export class ModalController {
         this.modalELement.style.display = 'flex';
         this.imageElement.src = art.primaryimageurl;
         this.idElement.textContent = art.id.toString();
+        this.titleElement.textContent = art.title;
         this.yearElement.textContent = art.dated;
         this.artistElement.textContent = `Artista: ${art.people === undefined || art.people === null ? "Desconhecido" : art.people[0].name}`;
         this.techniqueElement.textContent = `Técnica: ${art.technique === null ? "Sem informações" : art.technique}`;
@@ -68,5 +71,7 @@ export class ModalController {
             console.log('entrou');
         }
         localStorage.setItem('saved', JSON.stringify(artsToSave));
+    }
+    formatText(type, text) {
     }
 }

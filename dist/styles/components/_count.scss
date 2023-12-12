@@ -1,0 +1,25 @@
+@use '../abstract/variables';
+@use '../abstract/mixins';
+
+.art__count {
+    align-items: center;
+    background-color: variables.$primary-color;
+    border-radius: 20px;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    margin: .7rem;
+    height: 4rem;
+    width: 4rem;
+    position: fixed;
+    right: 0;
+
+    p {
+        @include mixins.text-format(
+                variables.$secondary-color,
+                variables.$text-font,
+                1rem
+        );
+        font-weight: 800;
+    }
+}

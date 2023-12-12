@@ -6,6 +6,7 @@ export class ModalController {
     private imageElement: HTMLImageElement;
     private idElement: HTMLParagraphElement;
     private buttonsElement: HTMLDivElement;
+    private titleElement: HTMLHeadingElement;
     private yearElement: HTMLParagraphElement;
     private artistElement: HTMLParagraphElement;
     private techniqueElement: HTMLParagraphElement;
@@ -18,6 +19,7 @@ export class ModalController {
         this.imageElement = document.querySelector('.art__img') as HTMLImageElement;
         this.idElement = document.querySelector('.art__id') as HTMLParagraphElement;
         this.buttonsElement = document.querySelector('.art__buttons') as HTMLDivElement;
+        this.titleElement = document.querySelector('.art__title') as HTMLHeadingElement;
         this.yearElement = document.querySelector('.art__year') as HTMLParagraphElement;
         this.artistElement = document.querySelector('.art__artist') as HTMLParagraphElement;
         this.techniqueElement = document.querySelector('.art__technique') as HTMLParagraphElement;
@@ -34,6 +36,7 @@ export class ModalController {
         this.modalELement.style.display = 'flex';
         this.imageElement.src = art.primaryimageurl;
         this.idElement.textContent = art.id.toString();
+        this.titleElement.textContent = art.title;
         this.yearElement.textContent = art.dated;
         this.artistElement.textContent = `Artista: ${art.people === undefined || art.people === null ? "Desconhecido" : art.people[0].name}`;
         this.techniqueElement.textContent = `Técnica: ${art.technique === null ? "Sem informações" : art.technique}`;
@@ -84,5 +87,10 @@ export class ModalController {
         }
 
         localStorage.setItem('saved', JSON.stringify(artsToSave));
+    }
+
+    private formatText(type: string, text: string) {
+        //formatar titulo
+        //formatar tamanho da descrição
     }
 }

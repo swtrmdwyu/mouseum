@@ -118,20 +118,33 @@ header p {
 }
 
 .search__filter {
+  align-items: center;
   display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
+  margin: 1.4rem 0 0.5rem 0;
   width: calc(100% - 3rem);
 }
 .search__filter img {
   display: none;
-  margin-left: auto;
-  width: 1.6rem;
+  margin-right: 1.2rem;
+  width: 1.9rem;
 }
 .search__filter .filter__options {
-  width: 50%;
-  margin-left: auto;
-  text-align: end;
+  color: #1E1E1E;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.9rem;
+  display: none;
+  font-weight: 800;
+  width: 100%;
+}
+.search__filter .filter__options .filter__item {
+  border: 1px solid #1E1E1E;
+  border-radius: 6px;
+  margin-right: 0.5rem;
+  padding: 0.4rem 1rem;
+}
+.search__filter .filter__options .active {
+  background-color: #1E1E1E;
+  color: #EEF7FF;
 }
 
 .arts {
@@ -262,4 +275,23 @@ header p {
   .art__image {
     max-height: 100px;
   }
+}
+.art__count {
+  align-items: center;
+  background-color: #1E1E1E;
+  border-radius: 20px;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  margin: 0.7rem;
+  height: 4rem;
+  width: 4rem;
+  position: fixed;
+  right: 0;
+}
+.art__count p {
+  color: #EEF7FF;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+  font-weight: 800;
 }/*# sourceMappingURL=style.css.map */

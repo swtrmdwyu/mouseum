@@ -29,20 +29,38 @@
 }
 
 .search__filter {
+    align-items: center;
     display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
+    margin: 1.4rem 0 .5rem 0;
     width: calc(100% - 3rem);
 
     img {
         display: none;
-        margin-left: auto;
-        width: 1.6rem;
+        margin-right: 1.2rem;
+        width: 1.9rem;
     }
 
-    .filter__options{
-        width: 50%;
-        margin-left: auto;
-        text-align: end;
+    .filter__options {
+        @include mixins.text-format(
+                variables.$primary-color,
+                variables.$text-font,
+                .9rem
+        );
+
+        display: none;
+        font-weight: 800;
+        width: 100%;
+        
+        .filter__item {
+            border: 1px solid variables.$primary-color;
+            border-radius: 6px;
+            margin-right: .5rem;
+            padding: .4rem 1rem;
+        }
+
+        .active {
+            background-color: variables.$primary-color;
+            color: variables.$secondary-color;
+        }
     }
 }
