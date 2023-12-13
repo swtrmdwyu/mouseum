@@ -6,13 +6,13 @@ import { SavedView } from "./views/SavedView.js";
 const modal = new ModalController();
 const location = window.location.href;
 let url = new URL(location);
-console.log(url.pathname);
 if (url.pathname === '/dist/pages/saved.html') {
     const artElement = document.querySelector('.saved-arts');
     const savedView = new SavedView();
     savedView.update(artElement);
 }
 else if (url.pathname === '/dist/index.html') {
+    localStorage.setItem('searchValue', "");
     const arts = new ArtsController();
     const counter = document.querySelector('.art__counter');
     arts.addArt();
@@ -26,10 +26,8 @@ else if (url.pathname === '/dist/index.html') {
 else {
     const filter = new SearchService();
     const search = new SearchController();
-    const urlParams = new URLSearchParams(window.location.search);
-    const value = urlParams.get('q');
     const searchInput = document.querySelector('.search__input');
-    const searchIcon = document.querySelector('.search__icon');
-    searchInput.value = value;
+    searchInput.value = localStorage.getItem('searchValue');
+    localStorage.setItem('searchValue', "");
     search.SearchArts();
 }

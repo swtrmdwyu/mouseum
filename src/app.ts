@@ -8,7 +8,6 @@ const modal = new ModalController();
 
 const location = window.location.href;
 let url = new URL(location);
-console.log(url.pathname)
 
 if(url.pathname === '/dist/pages/saved.html') {
     const artElement = document.querySelector('.saved-arts') as HTMLDivElement;
@@ -16,6 +15,7 @@ if(url.pathname === '/dist/pages/saved.html') {
     savedView.update(artElement);
 
 } else if(url.pathname === '/dist/index.html') {
+    localStorage.setItem('searchValue', "")
     const arts = new ArtsController();
     const counter = document.querySelector('.art__counter') as HTMLParagraphElement;
     arts.addArt();
@@ -25,19 +25,17 @@ if(url.pathname === '/dist/pages/saved.html') {
             counter.textContent = (parseInt(counter.textContent) + 5).toString();
             arts.addArt();
         }
-    })
+    });
+
 } else {
     const filter = new SearchService();
     const search = new SearchController();
-
-    const urlParams = new URLSearchParams(window.location.search);
-    const value = urlParams.get('q')
-
     const searchInput = document.querySelector('.search__input') as HTMLInputElement;
-    const searchIcon = document.querySelector('.search__icon') as HTMLOrSVGScriptElement;
-    searchInput.value = value;
 
-    search.SearchArts();
+    searchInput.value = localStorage.getItem('searchValue');
+    localStorage.setItem('searchValue', "");
+
+    search.SearchArts();    
 }
 
 

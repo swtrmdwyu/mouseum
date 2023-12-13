@@ -23,7 +23,8 @@ export class ArtsController {
         this.searchIcon.addEventListener('click', () => {
             if(this.queryVerify()) {
                 this.url.pathname = '/dist/pages/search.html';
-                window.location.href = this.url.toString() + `q=${encodeURIComponent(this.searchInput.value)}`;
+                localStorage.setItem('searchValue', this.searchInput.value);
+                window.location.href = this.url.toString();
             }     
         });
 
@@ -31,7 +32,8 @@ export class ArtsController {
             if( pressedKey.key === 'Enter') {
                 if(this.queryVerify()) {
                     this.url.pathname = '/dist/pages/search.html';
-                    window.location.href = this.url.toString() + `?q=${encodeURIComponent(this.searchInput.value)}`;
+                    localStorage.setItem('searchValue', this.searchInput.value);
+                    window.location.href = this.url.toString();
                 }
             } 
         });
