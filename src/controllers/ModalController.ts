@@ -92,5 +92,6 @@ export class ModalController {
     private formatText(type: string, text: string) {
         //formatar titulo
         //formatar tamanho da descrição
+        //caracteres: . ; () [] untitled ,
     }
 }

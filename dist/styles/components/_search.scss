@@ -30,15 +30,9 @@
 
 .search__filter {
     align-items: center;
-    display: flex;
-    margin: 1.4rem 0 .5rem 0;
-    width: calc(100% - 3rem);
-
-    img {
-        display: none;
-        margin-right: 1.2rem;
-        width: 1.9rem;
-    }
+    display: none;
+    margin: 0 0 .5rem 0;
+    width: calc(100% - 2.4rem);
 
     .filter__options {
         @include mixins.text-format(
@@ -47,7 +41,7 @@
                 .9rem
         );
 
-        display: none;
+        display: flex;
         font-weight: 800;
         width: 100%;
         

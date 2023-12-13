@@ -1,13 +1,14 @@
 import { ArtsService } from "../services/ArtsService.js";
 import { ModalController } from "../controllers/ModalController.js";
 
-export class ArtsView {
-    private artsService = new ArtsService();
+export class SavedView {
+    private artsService = new ArtsService()
     private modalController = new ModalController();
 
     constructor() {}
     
-    public update(arts: Art[], artsElement: HTMLDivElement): void {
+    public update(artsElement: HTMLDivElement): void {
+        const arts = JSON.parse(localStorage.getItem('saved')) || [];
         
         arts.forEach((art: Art) => {
             const artElement = document.createElement('div');
@@ -34,4 +35,3 @@ export class ArtsView {
         this.modalController.render(art[0]);
     }
 }
-

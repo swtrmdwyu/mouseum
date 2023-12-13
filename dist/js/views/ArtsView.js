@@ -15,7 +15,6 @@ export class ArtsView {
                 this.showInfos(art.id.toString());
             });
             const loadImage = new Promise((resolve) => {
-                artElement.style.background = 'black';
                 artImage.onload = resolve;
             });
             artElement.appendChild(artImage);

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>μouseum</title>
+
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header">
+        <!-- NAVBAR -->
+        <nav class="navbar">
+            
+            <h1>μouseum</h1>
+        </nav>
+
+        <h2 class="header__title">Suas Inspirações:</h2>
+        <p class="header__description">Explore a coleção de imagens que você salvou.</p>
+    </header>
+    <!-- MAIN -->
+    <main class="main">
+        <section class="saved-arts"></section>
+    </main>
+    <!-- MODAL -->
+    <div class="modal">
+        <div class="modal-container">
+            <img class="close__button" src="../assets/img/exit.png" class="filter__icon">
+            <div class="art__image">
+                <img class="art__img" src="">
+            </div>
+            
+            <div class="art__save">
+                <p class="art__id"></p>
+                <div class="art__buttons"></div>
+            </div>
+            
+            <div class="art__infos">
+                <h2 class="art__title"></h2>
+                <p class="art__year"></p>
+                <p class="art__artist"></p>
+                <p class="art__technique"></p>
+                <p class="art__description"></p>
+            </div>
+
+            <div class="art__colors">
+            </div>
+        </div>
+    </div>
+
+    <div class="return">
+        <a href="../index.html" class="return__button">
+            <i class="uil uil-compass"></i> Voltar a explorar
+        </a>
+    </div>
+    <!-- SCRIPT -->
+    <script type="module" src="../js/app.js"></script>
+</body>
+</html>

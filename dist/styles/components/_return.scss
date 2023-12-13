@@ -1,0 +1,31 @@
+@use '../../abstract/mixins';
+@use '../../abstract/variables';
+.return {
+    align-items: center;
+    bottom: 0;
+    display: flex;
+    justify-content: end;
+    padding: 1rem .5rem;
+    position: fixed;
+    right: 0;
+    width: 100%;
+
+    a {
+        @include mixins.text-format(
+                variables.$secondary-color,
+                variables.$text-font,
+                1.3rem
+        );
+
+        background-color: variables.$primary-color;
+        border-radius: 10px;
+        box-shadow: -8px 4px 16px 0px rgba(0,0,0,0.48);
+        font-weight: 800;
+        padding: 1rem;
+        text-decoration: none;
+        
+        i {
+            font-size: 1.4rem;
+        }
+    }
+}
