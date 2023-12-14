@@ -29,5 +29,8 @@ else {
     const searchInput = document.querySelector('.search__input');
     searchInput.value = localStorage.getItem('searchValue');
     localStorage.setItem('searchValue', "");
-    search.SearchArts();
+    if (searchInput.value) {
+        search.searchArts();
+    }
+    ;
 }

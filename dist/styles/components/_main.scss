@@ -1,0 +1,43 @@
+@use '../abstract/variables';
+@use '../abstract/mixins';
+
+main {
+    .header__content {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        h2 {
+            @include mixins.text-format(
+                variables.$primary-color,
+                variables.$title-font,
+                1.4rem
+            );
+            margin-top: 2rem;
+        }
+    
+        p {
+            @include mixins.text-format(
+                variables.$primary-color,
+                variables.$text-font,
+                .98rem
+            );
+            margin: .5rem;
+            font-weight: 500;
+            text-align: center;
+        }
+    }
+}
+
+@media screen and (min-width: 1008px) {
+    main {
+        .header__content {
+            flex-direction: row;
+
+            h2 {
+                display: none;
+            }
+        }
+    }
+}

@@ -9,7 +9,7 @@ export class SearchController {
     private filters:NodeListOf<HTMLDivElement>;
     private page = 1;
     private searchValue: string;
-    public filterActive: boolean;
+    public filterActive: string;
 
     private searchService = new SearchService();
     private artsView = new ArtsView();
@@ -25,9 +25,16 @@ export class SearchController {
         window.addEventListener('scrollend', () => {
             if(window.scrollY + window.innerHeight + 1 >= document.documentElement.scrollHeight) {
                 if(!this.filterActive) {
-                    this.SearchArts();
+                    this.searchArts();
+                    
                 } else {
+                    this.page++
+                    const filter = async () => {
+                        const arts = await this.searchService.searchByFilter(this.searchInput.value, this.filterActive, this.page);
+                        this.artsView.update(arts, this.artsElement);
+                    }
 
+                    filter();
                 }
                 
             }
@@ -35,14 +42,14 @@ export class SearchController {
 
         this.searchIcon.addEventListener('click', () => {
             if(this.queryVerify()) {
-                this.SearchArts();
+                this.searchArts();
             }     
         });
 
         this.searchInput.addEventListener('keypress', pressedKey => {
             if(pressedKey.key === 'Enter') { 
                 if(this.queryVerify()) {
-                    this.SearchArts();
+                    this.searchArts();
                 }
             } 
         });
@@ -59,15 +66,18 @@ export class SearchController {
                 if(this.searchInput.value !== "") {
                     if(filter.classList.contains('active')) {
                         this.page = 1;
-                        this.filterActive = false;
+                        this.filterActive = "";
+                        
                         const arts = await this.searchService.searchArts(this.searchInput.value, this.page);
                         filter.classList.remove('active');
                         this.artsElement.innerHTML = "";
                         this.artsView.update(arts, this.artsElement);
 
                     } else {
+                        this.page = 1;
                         filter.classList.add('active');
-                        this.filterActive = true;
+                        this.filterActive = filter.dataset.filter;
+
                         const arts = await this.searchService.searchByFilter(this.searchInput.value, filter.dataset.filter, this.page);
                         this.artsElement.innerHTML = "";
                         this.artsView.update(arts, this.artsElement);
@@ -89,14 +99,14 @@ export class SearchController {
         }
     }
 
-    public async SearchArts(): Promise<void> {
+    public async searchArts(): Promise<void> {
         if(this.searchValue === this.searchInput.value) {
             this.page++
         } else {
             this.page = 1;
             this.artsElement.innerHTML = "";
         }
-        this.filterActive = false;
+        this.filterActive = "";
         this.searchValue = this.searchInput.value;
         this.filters.forEach((filter) => filter.classList.remove('active'));    
         const arts = await this.searchService.searchArts(this.searchInput.value, this.page);

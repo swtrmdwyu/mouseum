@@ -5,7 +5,7 @@ export class SearchService {
     permission = 'imagepermissionlevel:0';
     constructor() { }
     async searchArts(searchValue, page) {
-        return fetch(`${this.baseURL}?q=(${searchValue} AND ${this.permission})&size=5&page=${page}&hasimage=1&fields=${this.fields}&apikey=${this.APIKey}`)
+        return fetch(`${this.baseURL}?q=(${searchValue} AND ${this.permission})&size=20&page=${page}&hasimage=1&fields=${this.fields}&apikey=${this.APIKey}`)
             .then(res => res.json())
             .then(q => q.records);
     }

@@ -26,16 +26,17 @@ export class ModalController {
         this.closeButton.addEventListener('click', () => {
             this.modalELement.style.display = 'none';
         });
+        this.formatText('title', 'lore');
     }
     render(art) {
         this.modalELement.style.display = 'flex';
         this.imageElement.src = art.primaryimageurl;
         this.idElement.textContent = art.id.toString();
-        this.titleElement.textContent = art.title;
+        this.titleElement.textContent = this.formatText('title', art.title);
         this.yearElement.textContent = art.dated;
         this.artistElement.textContent = `Artista: ${art.people === undefined || art.people === null ? "Desconhecido" : art.people[0].name}`;
         this.techniqueElement.textContent = `Técnica: ${art.technique === null ? "Sem informações" : art.technique}`;
-        this.descriptionElement.textContent = art.description;
+        this.descriptionElement.textContent = this.formatText('description', art.description);
         this.colorsElement.innerHTML = "";
         art.colors.forEach(color => {
             const colorElement = document.createElement('div');
@@ -73,5 +74,27 @@ export class ModalController {
         localStorage.setItem('saved', JSON.stringify(artsToSave));
     }
     formatText(type, text) {
+        let formatedText = '';
+        if (text) {
+            if (type === 'title') {
+                const titleLength = text.length;
+                if (titleLength >= 50) {
+                    formatedText = text.slice(0, 49) + '...';
+                }
+                else {
+                    return text;
+                }
+            }
+            else {
+                const descriptionLength = text.length;
+                if (descriptionLength >= 150) {
+                    formatedText = text.slice(0, 149) + '...';
+                }
+                else {
+                    return text;
+                }
+            }
+        }
+        return formatedText;
     }
 }

@@ -14,23 +14,29 @@
         <!-- NAVBAR -->
         <nav class="navbar">
             <h1>μouseum</h1>
-            <div class="header__buttons">
-                <a href="./pages/saved.html" class="header__favorites"><i class="uil uil-bookmark"></i></a>
-            </div>
+            <a href="./pages/saved.html" class="header__favorites">Salvos</a>
         </nav>
-
-        <h2 class="header__title">Inspire-se:</h2>
-        <p class="header__description">Explore artigos do museu de Harvard.</p>
-
-        <div class="search">
-            <svg class="search__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" alt="search icon">
-                <path d="M46.599 46.599a4.498 4.498 0 0 1-6.363 0l-7.941-7.941C29.028 40.749 25.167 42 21 42 9.402 42 0 32.598 0 21S9.402 0 21 0s21 9.402 21 21c0 4.167-1.251 8.028-3.342 11.295l7.941 7.941a4.498 4.498 0 0 1 0 6.363zM21 6C12.717 6 6 12.714 6 21s6.717 15 15 15c8.286 0 15-6.714 15-15S29.286 6 21 6z"></path>
-            </svg>
-            <input class="search__input" type="text" placeholder="Faça sua busca...">
-        </div>
+        
     </header>
 
     <main class="main">
+        <div class="header__content">
+            <h2 class="header__title">Inspire-se:</h2>
+            <p class="header__description">Explore artigos do museu de Harvard.</p>
+
+            <div class="search">
+                <div class="search__bar">
+                    <svg class="search__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" alt="search icon">
+                        <path d="M46.599 46.599a4.498 4.498 0 0 1-6.363 0l-7.941-7.941C29.028 40.749 25.167 42 21 42 9.402 42 0 32.598 0 21S9.402 0 21 0s21 9.402 21 21c0 4.167-1.251 8.028-3.342 11.295l7.941 7.941a4.498 4.498 0 0 1 0 6.363zM21 6C12.717 6 6 12.714 6 21s6.717 15 15 15c8.286 0 15-6.714 15-15S29.286 6 21 6z"></path>
+                    </svg>
+                    <input class="search__input" type="text" placeholder="Faça sua busca...">
+                </div>
+                <button class="fillter__button">
+                    <img src="./assets/img/filter.svg" class="filter__icon">
+                </button>
+            </div>
+        </div>
+        
         <section class="arts"></section>
     </main>
     <div class="modal">
@@ -61,8 +67,7 @@
     <div class="art__count">
         <p class="art__counter">5</p>
     </div>
-
-    <footer></footer>
+    
     <!-- SCRIPT -->
     <script type="module" src="./js/app.js"></script>
 </body>

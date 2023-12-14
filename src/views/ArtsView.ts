@@ -21,6 +21,7 @@ export class ArtsView {
             })
             
             const loadImage = new Promise((resolve) => {
+                artImage.style.background = 'black';
                 artImage.onload = resolve;
             });
 
