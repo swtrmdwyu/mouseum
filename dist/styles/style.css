@@ -115,10 +115,12 @@ header nav a span {
 .search .search__container {
   display: flex;
   gap: 0.5rem;
+  margin-top: 3rem;
   width: 100%;
 }
 .search .search__container .search__bar {
   align-items: center;
+  background-color: white;
   border: 1px solid #1E1E1E;
   border-radius: 10px;
   display: flex;
@@ -218,15 +220,11 @@ header nav a span {
   font-weight: 500;
   left: 0;
   opacity: 0;
-  padding: 0.5rem;
+  padding: 0.8rem;
   position: absolute;
   visibility: hidden;
   width: 60%;
   transition: opacity 0.7s ease;
-}
-.arts .arts__item:hover span {
-  opacity: 0.8;
-  visibility: visible;
 }
 .arts .arts__item:hover {
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.48);
@@ -240,6 +238,10 @@ header nav a span {
   .arts .arts__item {
     height: 40vh;
   }
+  .arts .arts__item:hover span {
+    opacity: 0.8;
+    visibility: visible;
+  }
 }
 .modal {
   align-items: center;
@@ -247,8 +249,10 @@ header nav a span {
   display: none;
   height: 100%;
   justify-content: center;
-  top: 0;
+  opacity: 0;
   position: fixed;
+  transition: opacity 0.3s ease-in-out;
+  top: 0;
   width: 100%;
 }
 .modal .modal-container {
@@ -295,10 +299,14 @@ header nav a span {
   height: 1.4rem;
   width: 1.4rem;
 }
-.modal .modal-container .art__save svg path {
+.modal .modal-container .art__save .not-saved {
   fill: none;
   stroke: #1E1E1E;
   stroke-width: 1.5px;
+}
+.modal .modal-container .art__save .saved {
+  fill: #1E1E1E;
+  stroke: none;
 }
 .modal .modal-container .art__save .art__buttons a {
   color: #1E1E1E;
@@ -360,6 +368,11 @@ header nav a span {
 @media screen and (max-width: 356px) {
   .art__image {
     max-height: 100px;
+  }
+}
+@media screen and (min-width: 1008px) {
+  .modal .modal-container {
+    width: 50%;
   }
 }
 .art__count {
@@ -438,17 +451,30 @@ main .header__content {
   flex-direction: column;
   width: 100%;
 }
-main .header__content h2 {
+main .header__content .banner {
+  align-items: center;
+  background: url("./../assets/img/criacao-de-adao.jpeg") no-repeat;
+  background-size: cover;
+  border-radius: 0 0 20px 20px;
+  display: flex;
+  flex-direction: column;
+  height: 25vh;
+  justify-content: center;
+  width: 100%;
+}
+main .header__content .banner h2 {
+  background: white;
+  padding: 0.5rem;
   color: #1E1E1E;
   font-family: "DM Serif Text", serif;
   font-size: 1.4rem;
   margin-top: 2rem;
 }
-main .header__content p {
+main .header__content .banner p {
   color: #1E1E1E;
   font-family: "Montserrat", sans-serif;
   font-size: 0.98rem;
-  margin: 0.5rem;
+  margin: 0.5rem 0.5rem 2rem 0.5rem;
   font-weight: 500;
   text-align: center;
 }
@@ -456,5 +482,33 @@ main .header__content p {
 @media screen and (min-width: 1008px) {
   main .header__content {
     width: 50%;
+  }
+}
+.message {
+  color: #EEF7FF;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.8rem;
+  align-items: center;
+  display: flex;
+  background-color: #1E1E1E;
+  border-radius: 10px;
+  box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.48);
+  font-weight: 800;
+  height: 2.5rem;
+  justify-content: center;
+  margin: 0 25% 1rem 25%;
+  padding: 0.5rem 0;
+  position: fixed;
+  bottom: 0;
+  text-align: center;
+  visibility: hidden;
+  width: 50%;
+  transition: visibility 0.4s ease-in-out;
+}
+
+@media screen and (min-width: 1008px) {
+  .message {
+    max-width: 35%;
+    margin: 0 35% 2rem 35%;
   }
 }/*# sourceMappingURL=style.css.map */

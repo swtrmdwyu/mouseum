@@ -11,10 +11,12 @@
     .search__container {
         display: flex;
         gap: .5rem;
+        margin-top: 3rem;
         width: 100%;
 
         .search__bar {
             align-items: center;
+            background-color: white;
             border: 1px solid variables.$primary-color;
             border-radius: 10px;
             display: flex;

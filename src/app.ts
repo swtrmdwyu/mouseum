@@ -35,12 +35,18 @@ if(url.pathname === '/dist/pages/saved.html') {
     const searchInput = document.querySelector('.search__input') as HTMLInputElement;
     const filters = document.querySelectorAll('.filter__item') as NodeListOf<HTMLDivElement>;
 
-    const q = JSON.parse(localStorage.getItem('q'));
-    searchInput.value = q.value;
+    const storage = localStorage.getItem('q');
 
-    if(!q.filter) {
-        search.searchArts();
-    } 
+    if(storage) {
+        const q = JSON.parse(storage);
+        searchInput.value = q.value;
+
+        if(!q.filter) {
+            search.searchArts();
+        } 
+    }
+    
+    
 }
 
 

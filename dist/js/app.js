@@ -30,9 +30,12 @@ else {
     const search = new SearchController();
     const searchInput = document.querySelector('.search__input');
     const filters = document.querySelectorAll('.filter__item');
-    const q = JSON.parse(localStorage.getItem('q'));
-    searchInput.value = q.value;
-    if (!q.filter) {
-        search.searchArts();
+    const storage = localStorage.getItem('q');
+    if (storage) {
+        const q = JSON.parse(storage);
+        searchInput.value = q.value;
+        if (!q.filter) {
+            search.searchArts();
+        }
     }
 }

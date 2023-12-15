@@ -34,17 +34,14 @@
             font-weight: 500;
             left: 0;
             opacity: 0;
-            padding: .5rem;
+            padding: .8rem;
             position: absolute;
             visibility: hidden;
             width: 60%;
             transition: opacity 0.7s ease
         }
 
-        &:hover span {
-            opacity: .8;
-            visibility: visible;
-        } 
+         
 
         &:hover  {
             box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.48);
@@ -61,6 +58,11 @@
 
         .arts__item {
             height: 40vh;
+        
+            &:hover span {
+                opacity: .8;
+                visibility: visible;
+            }
         }
     }
 }

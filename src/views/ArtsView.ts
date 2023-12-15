@@ -36,13 +36,13 @@ export class ArtsView {
             loadImage
               .then(() => {
                 artElement.style.backgroundColor = 'transparent';
-          
+
                 artImage.addEventListener('click', () => {
                   this.showInfos(art.id.toString());
                 });
               })
-              .catch(() => {
-                console.error('Erro ao carregar imagem:', artImage.src);
+              .catch((error: any) => {
+                console.error('Erro ao carregar imagem:', artImage.src, error);
               });
           });
           

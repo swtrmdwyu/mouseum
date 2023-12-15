@@ -30,8 +30,8 @@ export class ArtsView {
                     this.showInfos(art.id.toString());
                 });
             })
-                .catch(() => {
-                console.error('Erro ao carregar imagem:', artImage.src);
+                .catch((error) => {
+                console.error('Erro ao carregar imagem:', artImage.src, error);
             });
         });
     }

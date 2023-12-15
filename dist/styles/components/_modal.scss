@@ -7,8 +7,10 @@
     display: none;
     height: 100%;
     justify-content: center;
-    top: 0;
+    opacity: 0;
     position: fixed;
+    transition: opacity .3s ease-in-out;
+    top: 0;
     width: 100%;
 
     .modal-container {
@@ -18,7 +20,9 @@
         height: auto;
         justify-items: center;
         max-height: 90%;
+ 
         padding: .8rem .8rem 1.5rem .8rem;
+        
         width: 80%;
 
         .art__image {
@@ -57,11 +61,17 @@
             svg {
                 height: 1.4rem;
                 width: 1.4rem;
-                path {
-                    fill: none;
-                    stroke: variables.$primary-color;
-                    stroke-width: 1.5px
-                }            
+                           
+            }
+            .not-saved {
+                fill: none;
+                stroke: variables.$primary-color;
+                stroke-width: 1.5px 
+            }
+
+            .saved {
+                fill: variables.$primary-color;
+                stroke: none;           
             }
 
             .art__buttons {
@@ -72,7 +82,8 @@
                     );
 
                     margin-left: .5rem;
-                }  
+                }
+                  
             }
         }
 
@@ -144,5 +155,11 @@
 @media  screen and (max-width: 356px) {
     .art__image {
         max-height: 100px;
+    }
+}
+
+@media screen and (min-width: 1008px) {
+    .modal {
+        .modal-container {width: 50%;}
     }
 }
