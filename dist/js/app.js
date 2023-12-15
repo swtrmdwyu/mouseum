@@ -7,11 +7,13 @@ const modal = new ModalController();
 const location = window.location.href;
 let url = new URL(location);
 if (url.pathname === '/dist/pages/saved.html') {
-    const artElement = document.querySelector('.saved-arts');
+    const artElement = document.querySelector('.arts');
     const savedView = new SavedView();
     savedView.update(artElement);
 }
 else if (url.pathname === '/dist/index.html') {
+    const filter = new SearchService();
+    const search = new SearchController();
     localStorage.setItem('searchValue', "");
     const arts = new ArtsController();
     const counter = document.querySelector('.art__counter');
@@ -27,10 +29,10 @@ else {
     const filter = new SearchService();
     const search = new SearchController();
     const searchInput = document.querySelector('.search__input');
-    searchInput.value = localStorage.getItem('searchValue');
-    localStorage.setItem('searchValue', "");
-    if (searchInput.value) {
+    const filters = document.querySelectorAll('.filter__item');
+    const q = JSON.parse(localStorage.getItem('q'));
+    searchInput.value = q.value;
+    if (!q.filter) {
         search.searchArts();
     }
-    ;
 }

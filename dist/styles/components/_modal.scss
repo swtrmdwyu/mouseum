@@ -47,12 +47,22 @@
                 variables.$primary-color,
                 variables.$text-font
             );
-
+            align-items: center;
             display: flex;
             font-weight: 700;
             justify-content: space-between;
             margin-bottom: 1.2rem;
             width: 98%;
+
+            svg {
+                height: 1.4rem;
+                width: 1.4rem;
+                path {
+                    fill: none;
+                    stroke: variables.$primary-color;
+                    stroke-width: 1.5px
+                }            
+            }
 
             .art__buttons {
                 a {

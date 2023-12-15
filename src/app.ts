@@ -10,11 +10,13 @@ const location = window.location.href;
 let url = new URL(location);
 
 if(url.pathname === '/dist/pages/saved.html') {
-    const artElement = document.querySelector('.saved-arts') as HTMLDivElement;
+    const artElement = document.querySelector('.arts') as HTMLDivElement;
     const savedView = new SavedView();
     savedView.update(artElement);
 
 } else if(url.pathname === '/dist/index.html') {
+    const filter = new SearchService();
+    const search = new SearchController();
     localStorage.setItem('searchValue', "")
     const arts = new ArtsController();
     const counter = document.querySelector('.art__counter') as HTMLParagraphElement;
@@ -31,14 +33,14 @@ if(url.pathname === '/dist/pages/saved.html') {
     const filter = new SearchService();
     const search = new SearchController();
     const searchInput = document.querySelector('.search__input') as HTMLInputElement;
+    const filters = document.querySelectorAll('.filter__item') as NodeListOf<HTMLDivElement>;
 
-    searchInput.value = localStorage.getItem('searchValue');
-    localStorage.setItem('searchValue', "");
+    const q = JSON.parse(localStorage.getItem('q'));
+    searchInput.value = q.value;
 
-    if(searchInput.value) {
-        search.searchArts();  
-    };
-      
+    if(!q.filter) {
+        search.searchArts();
+    } 
 }
 
 

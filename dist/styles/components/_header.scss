@@ -2,7 +2,7 @@
 @use '../abstract/variables';
 
 header {
-    align-items: center;
+    align-items: flex-start;
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -11,7 +11,7 @@ header {
         align-items: center;
         background-color: variables.$primary-color;
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
         padding: 1.2rem 0;
         text-align: center;
         width: 100%;
@@ -22,10 +22,38 @@ header {
                 variables.$title-font,
                 1.4rem
             );
+            margin-left: 1rem;
         }
 
         a {
-            display: none;
+            @include mixins.text-format(
+                variables.$secondary-color,
+                variables.$text-font,
+                .8rem
+            );
+            
+            align-items: center;
+            color: variables.$secondary-color;
+            display: flex;
+            margin: .2rem 1rem 0 0;
+            font-weight: 500;
+            text-decoration: none;
+            text-transform: uppercase;
+
+            svg {
+                width: 2rem;
+                height: 1rem;
+
+                path {
+                    fill: #FFF;
+                }
+            }
+
+            span {
+                display: none;
+            }
+
+            
         }
     }
 
@@ -34,33 +62,22 @@ header {
 
 @media screen and (min-width: 1008px) {
     header {
-        align-items: flex-start;
         nav {
-            justify-content: space-between;
-            
             h1 {
-                margin-left: 2rem;
+                margin-left: 3rem;
+            }
+
+            .header__favorites {
+                margin-right: 2rem;
+                
+            }
+            a {
+                span {
+                    display: block;
+                }
             }
             
-
-            a {
-                @include mixins.text-format(
-                    variables.$secondary-color,
-                    variables.$text-font,
-                    1rem
-                );
-                color: variables.$secondary-color;
-                display: block;
-                margin: .2rem 2rem 0 0;
-                font-weight: 500;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-        }
-
-        .header__content {
-            width: 40%;
-            height: 100%;
+            
         }
     }
 }

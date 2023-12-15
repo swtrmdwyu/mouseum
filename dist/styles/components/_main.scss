@@ -2,10 +2,15 @@
 @use '../abstract/mixins';
 
 main {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+
     .header__content {
         align-items: center;
         display: flex;
         flex-direction: column;
+        
         width: 100%;
 
         h2 {
@@ -33,11 +38,7 @@ main {
 @media screen and (min-width: 1008px) {
     main {
         .header__content {
-            flex-direction: row;
-
-            h2 {
-                display: none;
-            }
+            width: 50%;
         }
     }
 }

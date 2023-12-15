@@ -51,7 +51,7 @@ table {
 }
 
 header {
-  align-items: center;
+  align-items: flex-start;
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -60,7 +60,7 @@ header nav {
   align-items: center;
   background-color: #1E1E1E;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   padding: 1.2rem 0;
   text-align: center;
   width: 100%;
@@ -69,43 +69,55 @@ header nav h1 {
   color: #EEF7FF;
   font-family: "DM Serif Text", serif;
   font-size: 1.4rem;
+  margin-left: 1rem;
 }
 header nav a {
+  color: #EEF7FF;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.8rem;
+  align-items: center;
+  color: #EEF7FF;
+  display: flex;
+  margin: 0.2rem 1rem 0 0;
+  font-weight: 500;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+header nav a svg {
+  width: 2rem;
+  height: 1rem;
+}
+header nav a svg path {
+  fill: #FFF;
+}
+header nav a span {
   display: none;
 }
 
 @media screen and (min-width: 1008px) {
-  header {
-    align-items: flex-start;
-  }
-  header nav {
-    justify-content: space-between;
-  }
   header nav h1 {
-    margin-left: 2rem;
+    margin-left: 3rem;
   }
-  header nav a {
-    color: #EEF7FF;
-    font-family: "Montserrat", sans-serif;
-    font-size: 1rem;
-    color: #EEF7FF;
+  header nav .header__favorites {
+    margin-right: 2rem;
+  }
+  header nav a span {
     display: block;
-    margin: 0.2rem 2rem 0 0;
-    font-weight: 500;
-    text-decoration: none;
-    text-transform: uppercase;
-  }
-  header .header__content {
-    width: 40%;
-    height: 100%;
   }
 }
 .search {
+  align-items: center;
   display: flex;
+  flex-direction: column;
   gap: 0.5rem;
   width: calc(100% - 2rem);
 }
-.search .search__bar {
+.search .search__container {
+  display: flex;
+  gap: 0.5rem;
+  width: 100%;
+}
+.search .search__container .search__bar {
   align-items: center;
   border: 1px solid #1E1E1E;
   border-radius: 10px;
@@ -114,12 +126,12 @@ header nav a {
   width: 100%;
   height: 2.5rem;
 }
-.search .search__bar svg {
+.search .search__container .search__bar svg {
   width: 1rem;
   padding: 1rem;
   fill: #1E1E1E;
 }
-.search .search__bar input {
+.search .search__container .search__bar input {
   background-color: transparent;
   border: none;
   color: #1E1E1E;
@@ -128,26 +140,39 @@ header nav a {
   outline: none;
   width: 100%;
 }
-.search .fillter__button {
+.search .search__container .filter__button {
   background-color: #1E1E1E;
+  border: none;
   border-radius: 8px;
   padding: 0 0.8rem;
 }
-.search .fillter__button img {
+.search .search__container .filter__button img {
   margin-top: 50%;
   width: 1rem;
   stroke: #EEF7FF;
 }
 .search .search__filter {
-  align-items: center;
-  display: flex;
-  margin: 0 0 0.5rem 0;
-  width: calc(100% - 2.4rem);
+  color: #1E1E1E;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.9rem;
+  display: none;
+  flex-direction: column;
+  gap: 0.8rem;
+  justify-content: center;
+  margin: 1rem 0 0.5rem 0;
+  width: calc(100% - 1rem);
+}
+.search .search__filter hr {
+  border-width: 0.1px;
+  background-color: #1E1E1E;
+  opacity: 0.5;
+  width: 100%;
 }
 .search .search__filter .filter__options {
   color: #1E1E1E;
   font-family: "Montserrat", sans-serif;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
+  align-items: center;
   display: flex;
   font-weight: 800;
   width: 100%;
@@ -166,21 +191,56 @@ header nav a {
 .arts {
   display: grid;
   gap: 0.8rem;
+  margin-top: 2rem;
   padding: 1rem;
   grid-template-columns: repeat(2, 1fr);
 }
 .arts .arts__item {
   height: 30vh;
-  border-radius: 10px;
+  border-radius: 20px;
+  position: relative;
+  transition: bbox-shadow 0.4s ease-in-out;
 }
 .arts .arts__item img {
-  border-radius: 10px;
+  border-radius: 20px;
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
 }
+.arts .arts__item span {
+  color: #EEF7FF;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+  background-color: #1E1E1E;
+  border-radius: 0 18px 0 18px;
+  bottom: 0;
+  font-weight: 500;
+  left: 0;
+  opacity: 0;
+  padding: 0.5rem;
+  position: absolute;
+  visibility: hidden;
+  width: 60%;
+  transition: opacity 0.7s ease;
+}
+.arts .arts__item:hover span {
+  opacity: 0.8;
+  visibility: visible;
+}
+.arts .arts__item:hover {
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.48);
+}
 
+@media screen and (min-width: 1008px) {
+  .arts {
+    grid-template-columns: repeat(3, 1fr);
+    width: 70%;
+  }
+  .arts .arts__item {
+    height: 40vh;
+  }
+}
 .modal {
   align-items: center;
   background-color: rgba(0, 0, 0, 0.258);
@@ -224,11 +284,21 @@ header nav a {
   color: #1E1E1E;
   font-family: "Montserrat", sans-serif;
   font-size: 1rem;
+  align-items: center;
   display: flex;
   font-weight: 700;
   justify-content: space-between;
   margin-bottom: 1.2rem;
   width: 98%;
+}
+.modal .modal-container .art__save svg {
+  height: 1.4rem;
+  width: 1.4rem;
+}
+.modal .modal-container .art__save svg path {
+  fill: none;
+  stroke: #1E1E1E;
+  stroke-width: 1.5px;
 }
 .modal .modal-container .art__save .art__buttons a {
   color: #1E1E1E;
@@ -357,6 +427,11 @@ header nav a {
   font-size: 1.4rem;
 }
 
+main {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
 main .header__content {
   align-items: center;
   display: flex;
@@ -380,9 +455,6 @@ main .header__content p {
 
 @media screen and (min-width: 1008px) {
   main .header__content {
-    flex-direction: row;
-  }
-  main .header__content h2 {
-    display: none;
+    width: 50%;
   }
 }/*# sourceMappingURL=style.css.map */

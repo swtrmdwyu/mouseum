@@ -5,10 +5,10 @@ export class ArtsController {
     private artsElement: HTMLDivElement;
     private searchIcon: HTMLOrSVGScriptElement;
     private searchInput: HTMLInputElement;
-    private location: string;
-    private url: URL
+    private fillterElement: HTMLDivElement;
+    private fillterButton: HTMLButtonElement;
     private arts: Art[];
-    public page = 0;
+    private page = 0;
 
     private artsService = new ArtsService();
     private artsView = new ArtsView();
@@ -17,26 +17,8 @@ export class ArtsController {
         this.artsElement = document.querySelector('.arts') as HTMLDivElement;
         this.searchIcon = document.querySelector('.search__icon') as HTMLOrSVGScriptElement;
         this.searchInput = document.querySelector('.search__input') as HTMLInputElement;
-        this.location = window.location.href;
-        this.url = new URL(this.location);
-
-        this.searchIcon.addEventListener('click', () => {
-            if(this.queryVerify()) {
-                this.url.pathname = '/dist/pages/search.html';
-                localStorage.setItem('searchValue', this.searchInput.value);
-                window.location.href = this.url.toString();
-            }     
-        });
-
-        this.searchInput.addEventListener('keypress', (pressedKey) => {
-            if( pressedKey.key === 'Enter') {
-                if(this.queryVerify()) {
-                    this.url.pathname = '/dist/pages/search.html';
-                    localStorage.setItem('searchValue', this.searchInput.value);
-                    window.location.href = this.url.toString();
-                }
-            } 
-        });
+        this.fillterButton = document.querySelector('.search__button') as HTMLButtonElement;
+        this.fillterElement = document.querySelector('.search__filter') as HTMLDivElement;
     }
 
     public async addArt(): Promise<void> {
