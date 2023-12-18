@@ -1,0 +1,16 @@
+@use '../abstract/mixins';
+@use '../abstract/variables';
+
+.not-found {
+    align-items: center;
+    display: flex;
+    height: 10vh;
+    justify-content: center;
+    text-align: center;
+
+    @include mixins.text-format(
+                    variables.$primary-color,
+                    variables.$text-font,
+                    1.5rem
+    );
+}

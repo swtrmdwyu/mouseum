@@ -15,7 +15,7 @@
         <nav class="navbar">
             <h1>μouseum</h1>
             <a href="../index.html" class="header__favorites">
-                <span>Explorar mais </span>
+                <span>Discover</span>
                 <svg fill="#000000" height="800px" width="800px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
                     viewBox="0 0 501.333 501.333" xml:space="preserve">
                 <g>
@@ -43,9 +43,12 @@
     </header>
 
     <main class="main">
-        <div class="header__content">
-            <h2 class="header__title">Inspire-se:</h2>
-            <p class="header__description">Explore artigos do museu de Harvard.</p>
+        <div class="intro__content">
+            <div class="banner">
+                <h2 class="banner__title">Inspire yourself:</h2>
+                <p class="banner__description">Search museum articles from Harvard Museum</p>
+            </div>
+            
 
             <div class="search">
                 <div class="search__container">
@@ -53,7 +56,7 @@
                         <svg class="search__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" alt="search icon">
                             <path d="M46.599 46.599a4.498 4.498 0 0 1-6.363 0l-7.941-7.941C29.028 40.749 25.167 42 21 42 9.402 42 0 32.598 0 21S9.402 0 21 0s21 9.402 21 21c0 4.167-1.251 8.028-3.342 11.295l7.941 7.941a4.498 4.498 0 0 1 0 6.363zM21 6C12.717 6 6 12.714 6 21s6.717 15 15 15c8.286 0 15-6.714 15-15S29.286 6 21 6z"></path>
                         </svg>
-                        <input class="search__input" type="text" placeholder="Faça sua busca...">
+                        <input class="search__input" type="text" placeholder="Type your search...">
                     </div>
                     <button class="filter__button">
                         <img src="../assets/img/filter.svg" class="filter__icon">
@@ -61,10 +64,10 @@
                 </div>
 
                 <div class="search__filter">
-                    <span>Selecione um filtro: </span>
+                    <span>Select a search filter:</span>
                     <div class="filter__options">
-                        <div class="filter__item" data-filter="title" id="title">Título</div>
-                        <div class="filter__item" data-filter="person" id="person">Artista</div>
+                        <div class="filter__item" data-filter="title" id="title">Title</div>
+                        <div class="filter__item" data-filter="person" id="person">artist</div>
                     </div>
                 </div>
             </div>

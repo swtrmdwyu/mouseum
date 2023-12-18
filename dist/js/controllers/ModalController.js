@@ -38,8 +38,8 @@ export class ModalController {
         this.idElement.textContent = art.id.toString();
         this.titleElement.textContent = this.formatText('title', art.title);
         this.yearElement.textContent = art.dated;
-        this.artistElement.textContent = `Artista: ${art.people === undefined || art.people === null ? "Desconhecido" : art.people[0].name}`;
-        this.techniqueElement.textContent = `Técnica: ${art.technique === null ? "Sem informações" : art.technique}`;
+        this.artistElement.textContent = `Artist: ${art.people === undefined || art.people === null ? "Unknow" : art.people[0].name}`;
+        this.techniqueElement.textContent = `Technique: ${art.technique === null ? "Unknow" : art.technique}`;
         this.descriptionElement.textContent = this.formatText('description', art.description);
         this.colorsElement.innerHTML = "";
         art.colors.forEach(color => {
@@ -53,7 +53,7 @@ export class ModalController {
             colorElement.addEventListener('click', () => {
                 const colorHEX = color.color;
                 navigator.clipboard.writeText(colorHEX)
-                    .then(() => this.messageView.success('HEX Copiado!'))
+                    .then(() => this.messageView.success('HEX copiedvs!'))
                     .catch((err) => console.log(err));
             });
             this.colorsElement.appendChild(colorElement);
@@ -80,12 +80,12 @@ export class ModalController {
             if (saveButtonPath.classList.contains('not-saved')) {
                 saveButtonPath.classList.remove('not-saved');
                 saveButtonPath.classList.add('saved');
-                this.messageView.success('Imagem salva com sucesso!');
+                this.messageView.success('Image saved sucessfully!');
             }
             else {
                 saveButtonPath.classList.remove('saved');
                 saveButtonPath.classList.add('not-saved');
-                this.messageView.success('Imagem removida!');
+                this.messageView.success('Image removed!');
             }
         });
         this.buttonsElement.innerHTML = "";

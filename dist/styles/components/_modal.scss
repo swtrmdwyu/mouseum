@@ -20,9 +20,7 @@
         height: auto;
         justify-items: center;
         max-height: 90%;
- 
         padding: .8rem .8rem 1.5rem .8rem;
-        
         width: 80%;
 
         .art__image {
@@ -160,6 +158,12 @@
 
 @media screen and (min-width: 1008px) {
     .modal {
-        .modal-container {width: 50%;}
+        .modal-container {
+            width: 40%;
+            
+            .art__image {
+                max-height: 500px;
+            }
+        }
     }
 }

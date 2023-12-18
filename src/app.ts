@@ -19,12 +19,12 @@ if(url.pathname === '/dist/pages/saved.html') {
     const search = new SearchController();
     localStorage.setItem('searchValue', "")
     const arts = new ArtsController();
-    const counter = document.querySelector('.art__counter') as HTMLParagraphElement;
+    const counterElement = document.querySelector('.art__counter') as HTMLParagraphElement;
     arts.addArt();
 
     window.addEventListener('scrollend', () => {
         if(window.scrollY + window.innerHeight + 1 >= document.documentElement.scrollHeight) {
-            counter.textContent = (parseInt(counter.textContent) + 5).toString();
+            count(parseInt(counterElement.textContent), parseInt(counterElement.textContent) + 5, counterElement);
             arts.addArt();
         }
     });
@@ -45,9 +45,15 @@ if(url.pathname === '/dist/pages/saved.html') {
             search.searchArts();
         } 
     }
-    
-    
 }
 
+function count(from: number, to: number, counterElement: HTMLParagraphElement) {
+    const counter = setInterval(() => {
+        from++
+        counterElement.textContent = from.toString();
 
-
+        if(from === to) {
+            clearInterval(counter);
+        }
+    }, 150);
+}
