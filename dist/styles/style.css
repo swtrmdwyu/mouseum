@@ -380,6 +380,21 @@ header nav a span {
     max-height: 500px;
   }
 }
+@media screen and (max-height: 830px) {
+  .modal .modal-container .art__image {
+    max-height: 200px;
+  }
+  .modal .modal-container .art__colors {
+    min-height: 10px;
+    margin: none;
+  }
+  .modal .modal-container .art__colors .art__color {
+    height: 10px;
+  }
+  .modal .modal-container .art__colors .art__color span {
+    display: none;
+  }
+}
 .art__count {
   align-items: center;
   background-color: #1E1E1E;

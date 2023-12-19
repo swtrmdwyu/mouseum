@@ -167,3 +167,27 @@
         }
     }
 }
+
+
+@media  screen and (max-height: 830px) {
+    .modal {
+        .modal-container {          
+            .art__image {
+                max-height: 200px;
+            }
+            
+            .art__colors {
+                min-height: 10px;
+                margin: none;
+                
+                .art__color {
+                    height: 10px;
+                    span {
+                       
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}
