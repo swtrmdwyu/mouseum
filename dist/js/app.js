@@ -11,7 +11,7 @@ if (url.pathname === '/dist/pages/saved.html') {
     const savedView = new SavedView();
     savedView.update(artElement);
 }
-else if (url.pathname === '/dist/index.html') {
+else if (url.pathname === '/dist/index.html' || url.pathname === '/dist') {
     const filter = new SearchService();
     const search = new SearchController();
     localStorage.setItem('searchValue', "");

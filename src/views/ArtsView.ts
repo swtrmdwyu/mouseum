@@ -43,6 +43,7 @@ export class ArtsView {
               });
             })
             .catch((error: any) => {
+              artImage.style.display = 'none';
               console.error('Erro ao carregar imagem:', artImage.src, error);
             });
         });
